@@ -15,7 +15,7 @@ To recreate this project with the same configuration:
 
 ```sh
 # recreate this project
-bun x sv@0.17.0 create --template minimal --types ts --add sveltekit-adapter="adapter:auto" better-auth="demo:password" drizzle="database:postgresql+postgresql:postgres.js+docker:yes" --install bun ./
+bun x sv@0.17.0 create --template minimal --types ts --add sveltekit-adapter="adapter:static" --install bun ./
 ```
 
 ## Developing
