@@ -17,6 +17,9 @@ export default defineConfig({
         precompress: false,
         strict: true,
       }),
+      paths: {
+        base: "/portfolio",
+      },
     }),
   ],
 });
