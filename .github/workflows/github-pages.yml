@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Install dependencies
+      - name: Build website
         run: bun run build
 
       - name: Upload Artifacts
