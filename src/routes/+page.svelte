@@ -1,4 +1,6 @@
 <script>
+    import Guestbook from "$lib/components/guestbook.svelte";
+
 	const date = new Date(Date.now());
 	const over_birthday = date.getMonth() > 4 || date.getDay() > 16;
 	const age = over_birthday ? date.getFullYear() - 2000 : date.getFullYear() - 2001;
@@ -26,3 +28,5 @@
 <p><i>2022 - 2024 (discontinued)</i></p>
 
 <p>...more incoming</p>
+
+<Guestbook></Guestbook>

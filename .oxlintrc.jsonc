@@ -1,0 +1,100 @@
+{
+	"options": {
+		"typeAware": true,
+	},
+	"rules": {
+		"custom/naming-convention": "warn",
+		"custom/no-unsafe-computed-property": "warn",
+		"custom/vite-config-safe": "error",
+
+		"no-useless-spread": "off", // Kind of annoying and there is not too much value for now.
+		"no-useless-empty-export": "off", // Empty export is sometimes useful because of the module resolution.
+		"curly": ["warn", "all"],
+		"eqeqeq": ["error", "smart"],
+		"typescript/no-import-type-side-effects": "warn",
+		"typescript/consistent-type-definitions": "warn",
+		"typescript/no-floating-promises": "warn",
+		"typescript/strict-boolean-expressions": "error",
+		"typescript/require-array-sort-compare": "error",
+		"typescript/no-non-null-assertion": "error",
+		"typescript/switch-exhaustiveness-check": [
+			"error",
+			{
+				"considerDefaultExhaustiveForUnions": true,
+			},
+		],
+		"typescript/no-unsafe-function-type": "warn",
+		"typescript/no-explicit-any": "warn",
+		"typescript/no-namespace": "warn",
+
+		"typescript/restrict-template-expressions": "off", // Not useful.
+		"typescript/no-implied-eval": "off", // Not useful
+		"typescript/no-meaningless-void-operator": "off", // Conflicts with no-unused-expressions for `void assert<...>` type-only calls.
+		"typescript/consistent-type-imports": ["warn", { "fixStyle": "inline-type-imports" }],
+		"typescript/no-duplicate-type-constituents": "warn",
+		"typescript/no-unnecessary-condition": [
+			"warn",
+			{
+				"allowConstantLoopConditions": true,
+			},
+		],
+
+		"no-restricted-globals": [
+			"warn",
+			{
+				"name": "parseInt",
+				"message": "Use Number(...) instead, parseInt can have unexpected behavior.",
+			},
+			{
+				"name": "isNaN",
+				"message": "Use Number.isNaN instead, which doesn't coerce the input.",
+			},
+		],
+
+		"typescript/no-unused-vars": [
+			"warn",
+			{
+				"destructuredArrayIgnorePattern": "^_",
+				"varsIgnorePattern": "^_",
+				"argsIgnorePattern": "^_",
+			},
+		],
+		"typescript/array-type": "warn",
+		"typescript/consistent-return": "warn",
+		"oxc/misrefactored-assign-op": "warn",
+		"promise/no-multiple-resolved": "warn",
+		"promise/no-callback-in-promise": "warn",
+		"promise/catch-or-return": "warn",
+		"eslint/object-shorthand": "warn",
+		"unicorn/no-array-for-each": "error",
+		"no-param-reassign": "error",
+	},
+	"overrides": [
+		{
+			"files": ["*.svelte"],
+			"rules": {
+				"no-unassigned-vars": "off",
+				"typescript/consistent-type-imports": "off",
+			},
+		},
+		{
+			"files": [".svelte-kit/.svelte-check/**"],
+			"rules": {
+				"no-unused-vars": [
+					"error",
+					{
+						// Snippet names need to be ignored for now.
+						"varsIgnorePattern": "^(toolbar|header|content|child|children|children_after|controls|error|loading|loaded|camera|direct_value|right_element|extra_header_components|trigger|_)$",
+					},
+				],
+				"typescript/strict-boolean-expressions": ["error", { "allowNullableString": true }],
+				"typescript/consistent-type-imports": ["off"], // Annoying without auto-fix, re-enable after proper Svelte support.
+				"typescript/triple-slash-reference": "off", // Too many false positives in the generated code.
+				"no-irregular-whitespace": "off", // False positives for &nbsp;
+				"typescript/no-unused-expressions": "off", // Too many false positives in the generated code.
+				"typescript/no-explicit-any": "off", // Too many false positives in the generated code.
+			},
+		},
+	],
+	"ignorePatterns": ["**/*.js"],
+}
